@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay Calculator</title>
+</head>
+<body>
+
+    <h1>Pay Calculator</h1>
+
+    <script>
+        //This is the function to calculate pay and display results
+        function calculatePay() {
+            //The input prompts asking the user for the info.
+            var hourlyPay = prompt("Please enter your hourly pay rate:");
+            var hoursWorked = prompt("Please enter the total hours worked over the two-week period:");
+
+        
+            //This Calculates the math of the grosspay, taxrate, taxamount, and netpay
+            var grossPay = hourlyPay * hoursWorked;
+            var taxRate = 0.20; // 20% tax rate
+            var taxAmount = grossPay * taxRate;
+            var netPay = grossPay - taxAmount;
+
+            //This is making sure the decimals are only 2 places using the tofixed methoad as requested.
+            grossPay = grossPay.toFixed(2);
+            taxAmount = taxAmount.toFixed(2);
+            netPay = netPay.toFixed(2);
+
+            //Final console display of the grosspay, taxamount, netpay 
+            alert(`Gross Pay: $${grossPay}\nUncle Sam's Share: $${taxAmount}\nNet Pay: $${netPay}`);
+
+            console.log(`Gross Pay: $${grossPay}`);
+            console.log(`Uncle Sam's Share: $${taxAmount}`);
+            console.log(`Net Pay: $${netPay}`);
+        }
+
+        //This is to call the funtion to run it
+        calculatePay();
+    </script>
+
+</body>
+</html>
