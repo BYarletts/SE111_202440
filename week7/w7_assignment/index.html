@@ -52,6 +52,7 @@
     </form>
 
     <script>
+
         document.querySelector('#enter-button').addEventListener('click', alertName);
 
         function alertName(e) {
@@ -61,44 +62,45 @@
             var hours = parseFloat(document.querySelector('#hours').value);
             var rate = parseFloat(document.querySelector('#rate').value);
 
-            // Log values to console
-            console.log(fname);
-            console.log(lname);
-            console.log(hours);
-            console.log(rate);
+            
+            console.log(fname);   //  first name
+            console.log(lname);   // last name
+            console.log(hours);   // hours worked
+            console.log(rate);    // hourly rate
 
-            // Combine first and last names
+            //Combine first and last names
             var full = fname + ' ' + lname;
-            console.log(full);
+            console.log(full);  
 
-            // Convert hours and rate to numbers
+            // onvert hours and rate to numbers
             hours = Number(hours);
             rate = Number(rate);
 
             // Calculate gross pay, tax amount, and net pay
-            var gross = hours * rate;
-            var taxAmount = gross * 0.2;
-            var net = gross - taxAmount;
+            var gross = hours * rate; //Gross pay before tax
+            var taxAmount = gross * 0.2; //Tax amount (20% of gross pay)
+            var net = gross - taxAmount; //Net pay after tax deduction
 
-            
-            console.log(gross.toFixed(2));
-            console.log(taxAmount.toFixed(2));
-            console.log(net.toFixed(2));
+            // Log calculated values to console
+            console.log(gross.toFixed(2)); // Log gross pay
+            console.log(taxAmount.toFixed(2)); // Log tax amount 
+            console.log(net.toFixed(2)); // Log net pay 
 
-        
+            // Prepare the final message with formatted values
             var finalMessage = `Name: ${full}<br>Hours Worked: ${hours.toFixed(2)}<br>Hourly Rate: $${rate.toFixed(2)}`;
 
-            // Update HTML content
+            // The info and check sections with calculated values
             var info = document.querySelector('#info');
             var num = document.querySelector('#check');
 
             info.innerHTML = finalMessage;
             num.innerHTML = `Gross Pay: $${gross.toFixed(2)}<br>Tax Amount: $${taxAmount.toFixed(2)}<br>Net Pay: $${net.toFixed(2)}`;
 
-            // Add click event to submit button
+            //submit button
             document.querySelector('#submit').addEventListener('click', submitNow);
 
             function submitNow(e) {
+                // Alert the user with all the entered and calculated information
                 alert(`${full}\nHOURS: ${hours.toFixed(2)}\nRATE: $${rate.toFixed(2)}\n\nGROSS PAY: $${gross.toFixed(2)}\nTAX AMOUNT: $${taxAmount.toFixed(2)}\nNET PAY: $${net.toFixed(2)}`);
             }
         }
