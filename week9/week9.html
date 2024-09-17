@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Week 9 Files</title>
+<style type="text/css">
+    
+    .info-container {
+        padding: 10px;
+        margin: 10px 0;
+    } 
+                                   /* I tried finding a way to get the black line underneath and couldnt find anything but this sorry :[ */
+    .info-container p {
+        margin: 0;
+        padding: 5px 0;
+    }
+    
+    
+    .info-container p:last-of-type {
+        border-bottom: 3px solid black; 
+        padding-bottom: 10px; 
+    }
+</style>
+</head>
+
+<body>
+<script type="text/javascript">
+
+    var people = [
+        {first: "Braedin", last: "Yarletts", credit: "Loves Ice Cream"},
+        {first: "Freddy", last: "Krueger", credit: "A Nightmare on Elm Street"},
+        {first: "Roger", last: "Rabbit", credit: "Who Framed Roger Rabbit"},
+        {first: "Kevin", last: "McCallister", credit: "Home Alone"},
+        {first: "Godzilla", last: "King of The Monsters", credit: "Godzilla"},
+        {first: "Buzz", last: "Lightyear", credit: "Toy Story"},
+        {first: "Marion", last: "Cobretti", credit: "Cobra"}
+    ];
+    
+    var body = document.querySelector('body');
+
+    // Loop through the array of objects
+    for (var i = 0; i < people.length; i++) {
+
+        // Declare tempDiv
+        var tempDiv = document.createElement('div');
+
+        // A new div using document.createElement() 
+        tempDiv.className = 'info-container'; 
+
+        tempDiv.setAttribute('id', String(i));
+	
+        
+        for (var key in people[i]) {
+            if (people[i].hasOwnProperty(key)) {
+                
+                var p = document.createElement('p');
+
+                // textNode added
+                var textNode = document.createTextNode(key.charAt(0).toUpperCase() + key.slice(1) + ": " + people[i][key]);
+
+               
+                p.appendChild(textNode);
+
+                // New tempdiv added
+                tempDiv.appendChild(p);
+            }
+        }
+		
+        body.appendChild(tempDiv);
+    }
+</script>
+</body>
+</html>
